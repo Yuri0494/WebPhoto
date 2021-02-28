@@ -1,12 +1,24 @@
 import React from "react";
 import Header from "./components/Header";
-import "./App.css"
+import Footer from "./components/Footer";
+import "./App.css";
+
 
 
 export default class App extends React.Component {
     render () {
       return (
-        <Header/>
+        <div className="page__wrapper">
+            <div className="page__header">
+              <Header/>
+            </div>
+            <div className="page__content">
+
+            </div >
+            <div className="page__footer">
+              <Footer/>
+            </div>
+        </div>
       )
     }
 }
