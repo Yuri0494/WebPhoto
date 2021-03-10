@@ -19,21 +19,28 @@ export default class Slider extends React.Component {
                     photo3,
                     photo2,
                 ],
-                sliderCount: 0,
+                sliderCount: 3,
                 newRender: false,
                 active: false,
                 timerId: null,
+                displayed: false,
             }
         this.toggleActive = this.toggleActive.bind(this);
         this.deleteTimer = this.deleteTimer.bind(this);
         this.setTimer = this.setTimer.bind(this);
         this.toggleRenderActive = this.toggleRenderActive.bind(this);
-        this.nextSlide = this.nextSlide.bind(this);
+        this.nextSlide = this.nextSlide.bind(this); 
     }
 
     toggleActive () {
         return this.setState({
             active: !this.state.active
+        })
+    }
+
+    toggleDisplayedActive () {
+        return this.setState({
+            displayed: !this.state.displayed
         })
     }
 
@@ -92,15 +99,20 @@ export default class Slider extends React.Component {
             photo4 = "slider__photo__unvisible";
         }
 
+        let counter = this.state.sliderCount;
+        if(counter === 0) {
+            
+        }
+
         let sliderPhotos = 
             (<>
                 <div 
-                className={photo}><img src={photos[1]}></img></div>
-                <div className={photo2}><img src={photos[2]}></img></div>
+                className={photo}><img src={photos[this.state.sliderCount - 3]}></img></div>
+                <div className={photo2}><img src={photos[this.state.sliderCount - 2]}></img></div>
                 <div className={photo3}>
-                    <img src={photos[2]}></img>
+                    <img src={photos[this.state.sliderCount - 1]}></img>
                 </div>
-                <div className={photo4}><img src={photos[1]}></img></div>
+                <div className={photo4}><img src={photos[this.state.sliderCount]}></img></div>
                 
             </>)
     
