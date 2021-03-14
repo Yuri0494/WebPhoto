@@ -19,7 +19,12 @@ export default class Slider extends React.Component {
                     photo3,
                     photo2,
                 ],
-                sliderCount: 3,
+                slider: {
+                    sliderCount_one: 0,
+                    sliderCount_two: 1,
+                    sliderCount_three: 2,
+                    sliderCount_four: 3,
+                },
                 newRender: false,
                 active: false,
                 timerId: null,
@@ -67,15 +72,47 @@ export default class Slider extends React.Component {
     }
 
     nextSlide () {
-        let newCount = this.state.sliderCount;
-        if(this.state.sliderCount + 2 == this.state.photos.length) {
-            newCount = 0;
+        let photos = this.state.photos.length - 1;
+        let newSliderCount_one = this.state.slider.sliderCount_one;
+        let newSliderCount_two = this.state.slider.sliderCount_two;
+        let newSliderCount_three = this.state.slider.sliderCount_three;
+        let newSliderCount_four = this.state.slider.sliderCount_four;
+
+        if(newSliderCount_one < photos) {
+            ++newSliderCount_one;
         } else {
-            ++newCount;
+            newSliderCount_one = 0;
         }
-        console.log(newCount);
+
+        if(newSliderCount_two < photos) {
+            ++newSliderCount_two;
+        } else {
+            newSliderCount_two = 0;
+        }
+
+        if(newSliderCount_three < photos) {
+            ++newSliderCount_three;
+        } else {
+            newSliderCount_three = 0;
+        }
+
+        if(newSliderCount_four < photos) {
+            ++newSliderCount_four;
+        } else {
+            newSliderCount_four = 0;
+        }
+
+        console.log(newSliderCount_one);
+        console.log(newSliderCount_two);
+        console.log(newSliderCount_three);
+        console.log(newSliderCount_four);
         return this.setState({
-            sliderCount: newCount,
+            slider: {
+                sliderCount_one: newSliderCount_one,
+                sliderCount_two: newSliderCount_two,
+                sliderCount_three: newSliderCount_three,
+                sliderCount_four: newSliderCount_four,
+            },
         })
     }
 
@@ -107,12 +144,12 @@ export default class Slider extends React.Component {
         let sliderPhotos = 
             (<>
                 <div 
-                className={photo}><img src={photos[this.state.sliderCount - 3]}></img></div>
-                <div className={photo2}><img src={photos[this.state.sliderCount - 2]}></img></div>
+                className={photo}><img src={photos[this.state.slider.sliderCount_one]}></img></div>
+                <div className={photo2}><img src={photos[this.state.slider.sliderCount_two]}></img></div>
                 <div className={photo3}>
-                    <img src={photos[this.state.sliderCount - 1]}></img>
+                    <img src={photos[this.state.slider.sliderCount_three]}></img>
                 </div>
-                <div className={photo4}><img src={photos[this.state.sliderCount]}></img></div>
+                <div className={photo4}><img src={photos[this.state.slider.sliderCount_four]}></img></div>
                 
             </>)
     

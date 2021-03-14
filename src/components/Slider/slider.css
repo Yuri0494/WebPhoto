@@ -163,20 +163,23 @@
         transition: all 2s ease-out 0s;
     }
 
-    .slider__photo__unvisible.active {
+    .slider__photo__next {
+        margin: 0;
+        width: 0;
+        opacity: 0;
+    }
+
+    .slider__photo__next.active {
         display: flex;
         align-items: center;
         width: 70%;
         height: 90%;
         padding: 10px;
+        opacity: 1;
         transition: all 2s ease-out 0s;
     }
 
-    .slider__photo__next {
-        display: none;
-    }
-
-    .slider__photo__next.active {
+    .slider__photo__unvisible {
         display: none;
     }
 
