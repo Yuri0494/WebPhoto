@@ -25,6 +25,7 @@ export default class Slider extends React.Component {
                     sliderCount_three: 2,
                     sliderCount_four: 3,
                 },
+                slider_activeAnimation_false: true,
                 newRender: false,
                 active: false,
                 timerId: null,
@@ -35,11 +36,13 @@ export default class Slider extends React.Component {
         this.setTimer = this.setTimer.bind(this);
         this.toggleRenderActive = this.toggleRenderActive.bind(this);
         this.nextSlide = this.nextSlide.bind(this); 
+        this.toggleSliderAnimation = this.toggleSliderAnimation.bind(this);
     }
 
     toggleActive () {
         return this.setState({
-            active: !this.state.active
+            active: !this.state.active,
+            slider_activeAnimation_false: !this.state.slider_activeAnimation_false
         })
     }
 
@@ -102,10 +105,6 @@ export default class Slider extends React.Component {
             newSliderCount_four = 0;
         }
 
-        console.log(newSliderCount_one);
-        console.log(newSliderCount_two);
-        console.log(newSliderCount_three);
-        console.log(newSliderCount_four);
         return this.setState({
             slider: {
                 sliderCount_one: newSliderCount_one,
@@ -116,6 +115,11 @@ export default class Slider extends React.Component {
         })
     }
 
+  toggleSliderAnimation () { 
+        return this.setState({
+            slider_activeAnimation_false: !this.state.slider_activeAnimation_false,
+    })
+}
 
     render () {
         let photos = this.state.photos;
@@ -157,13 +161,15 @@ export default class Slider extends React.Component {
             <div className="slider__wrapper">
                 <div className="slider__content">
                     <div className="slider__photo">
-                        <div className="slider__arrow__next"
+                       <div className="slider__arrow__next"
                             onClick={(event) => {
-                                this.deleteTimer();
-                                this.toggleActive();
-                                this.setTimer();
-                                setTimeout(this.nextSlide, 2500)
-                            }}
+                                if(this.state.slider_activeAnimation_false) {
+                                    this.deleteTimer();
+                                    this.toggleActive();
+                                    this.setTimer();
+                                    setTimeout(this.nextSlide, 2500)
+                                    this.toggleSliderAnimation();
+                            }}}
                         ></div>
                             {sliderPhotos}
                         <div className="slider__arrow__back"></div>

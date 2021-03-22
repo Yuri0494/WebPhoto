@@ -15,6 +15,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     padding-top: 2px;
     width: 100%;
     height: 80%;
@@ -25,11 +26,13 @@
     width: 15%;
     opacity: 1;
     padding: 10px;
+    z-index: -1;
 }
 
 .slider__photo__back.active {
     width: 0%;
     opacity: 0;
+    z-index: -1;
     transform: translateX(-150px);
     transition: all 2s ease-out 0s;
 }
@@ -37,6 +40,7 @@
 .slider__photo__now {
     display: flex;
     align-items: center;
+    z-index: -1;
     width: 50%;
     height: 90%;
     padding: 10px;
@@ -44,12 +48,14 @@
 
 .slider__photo__now.active {
     width: 15%;
+    z-index: -1;
     transition: all 2s ease-out 0s;
 }
 
 .slider__photo__next.active {
     display: flex;
     align-items: center;
+    z-index: -1;
     width: 50%;
     height: 90%;
     padding: 10px;
@@ -59,24 +65,32 @@
 .slider__photo__next {
     width: 15%;
     padding: 10px;
+    z-index: -1;
     padding-right: 0px;
 }
 
 .slider__photo__unvisible {
     margin: 0;
     width: 0;
+    z-index: -1;
     opacity: 0;
 }
 
 .slider__photo__unvisible.active {
     width: 15%;
     opacity: 1;
+    z-index: -1;
     transition: all 2s ease-out 0s;
     padding: 20px;
 }
 
 .fuck {
-    display: none;
+    border-left: 5px solid black;
+    margin-left: 20px;
+}
+
+.div {
+    position: relative;
 }
 
 
@@ -91,38 +105,31 @@
 }
 
 .slider__arrow__next {
-    cursor: pointer;
-    left: -10%;
     min-width: 50px;
     min-height: 50px;
     margin-left: 20px;
     border-left: 5px solid black;
     border-bottom: 5px solid black;
-    z-index: 10;
     transform:rotate(43deg);
     transition: all 0.3s ease-out 0s;
 }
 
 .slider__arrow__back {
-    cursor: pointer;
     min-width: 50px;
     min-height: 50px;
     margin-right: 20px;
     border-left: 5px solid black;
     border-bottom: 5px solid black;
-    z-index: -1;
     transform:rotate(225deg);
     transition: all 0.3s ease-out 0s;
 }
 
 .slider__arrow__back:hover {
-    cursor: pointer;
     border-left: 5px solid white;
     border-bottom: 5px solid white;
 }
 
 .slider__arrow__next:hover {
-    cursor: pointer;
     border-left: 5px solid white;
     border-bottom: 5px solid white;
 }
@@ -190,5 +197,6 @@
     .slider__photo__back {
         display: none;
     }
+
 
 }
