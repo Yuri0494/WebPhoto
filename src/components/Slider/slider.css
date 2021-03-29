@@ -15,121 +15,81 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     padding-top: 2px;
     width: 100%;
     height: 80%;
     overflow: hidden;
 }
 
-.slider__photo__back {
-    width: 15%;
-    opacity: 1;
-    padding: 10px;
-    z-index: -1;
-}
-
-.slider__photo__back.active {
-    width: 0%;
-    opacity: 0;
-    z-index: -1;
-    transform: translateX(-150px);
-    transition: all 2s ease-out 0s;
-}
-
-.slider__photo__now {
+.slider__photo_now {
     display: flex;
+    margin: 5px;
     align-items: center;
-    z-index: -1;
-    width: 50%;
+    justify-content: center;
     height: 90%;
-    padding: 10px;
-}
-
-.slider__photo__now.active {
-    width: 15%;
-    z-index: -1;
-    transition: all 2s ease-out 0s;
-}
-
-.slider__photo__next.active {
-    display: flex;
-    align-items: center;
-    z-index: -1;
     width: 50%;
-    height: 90%;
-    padding: 10px;
-    transition: all 2s ease-out 0s;
+    padding-bottom: 2px;
 }
 
-.slider__photo__next {
-    width: 15%;
-    padding: 10px;
+.slider__photo_now.exiting {
+    position:relative;
     z-index: -1;
-    padding-right: 0px;
+    animation: show 0.7s linear;
+    animation-iteration-count: 1;
 }
 
-.slider__photo__unvisible {
-    margin: 0;
-    width: 0;
+.slider__photos__preveiw.exiting {
+    position:relative;
     z-index: -1;
-    opacity: 0;
+    animation: show 0.7s linear;
+    animation-iteration-count: 1;
 }
 
-.slider__photo__unvisible.active {
-    width: 15%;
-    opacity: 1;
-    z-index: -1;
-    transition: all 2s ease-out 0s;
-    padding: 20px;
-}
-
-.fuck {
-    border-left: 5px solid black;
-    margin-left: 20px;
-}
-
-.div {
-    position: relative;
-}
-
-
-.slider__photo img {
+.slider__photo_now img {
     display: block;
     margin: 0 auto;
     object-fit: scale-down;
-    box-shadow: 5px 3px 10px black;
+    box-shadow: 10px 5px 10px black;
+    border: 2px solid  white;
     max-height: 100%;
     max-width: 100%;
-    border: 2px solid white;
 }
 
 .slider__arrow__next {
+    position: relative;
+    z-index: -1;
     min-width: 50px;
     min-height: 50px;
     margin-left: 20px;
     border-left: 5px solid black;
     border-bottom: 5px solid black;
-    transform:rotate(43deg);
+    transform: rotate(45deg);
     transition: all 0.3s ease-out 0s;
 }
 
 .slider__arrow__back {
+    position: relative;
+    z-index: -1;
     min-width: 50px;
     min-height: 50px;
     margin-right: 20px;
     border-left: 5px solid black;
     border-bottom: 5px solid black;
-    transform:rotate(225deg);
-    transition: all 0.3s ease-out 0s;
+    transform: rotate(225deg);
+    transition: all 1s ease-out 0s;
 }
 
-.slider__arrow__back:hover {
+.arrow_container {
+    position: relative;
+    cursor: pointer;
+}
+
+.arrow_container:hover .slider__arrow__back {
     border-left: 5px solid white;
     border-bottom: 5px solid white;
 }
 
-.slider__arrow__next:hover {
+.arrow_container:hover .slider__arrow__next {
     border-left: 5px solid white;
     border-bottom: 5px solid white;
 }
@@ -155,48 +115,52 @@
     border: 0.5px solid white;
 }
 
+@keyframes show {
+    from {
+        opacity: 0.1;
+    }
+    
+    50% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+
+    75% {
+        opacity: 0.7;
+    }
+
+    90% {
+        opacity: 0.9;
+    }
+
+    to {
+        opacity: 1;
+    }
+
+  }
+
+  @keyframes hide {
+    
+    from {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+        animation-timing-function: ease-out;
+    }
+
+    to {
+        opacity: 0.1;
+    }
+  }
+
 @media (max-width: 768px) {
 
-    .slider__photo__now {
-        width: 70%;
-        height: 90%;
-        opacity: 1;
-    }
-
-    .slider__photo__now.active {
-        width: 0%;
-        opacity: 0;
-        transform: translateX(-250px);
-        transition: all 2s ease-out 0s;
-    }
-
-    .slider__photo__next {
-        margin: 0;
-        width: 0;
-        opacity: 0;
-    }
-
-    .slider__photo__next.active {
-        display: flex;
-        align-items: center;
-        width: 70%;
-        height: 90%;
-        padding: 10px;
-        opacity: 1;
-        transition: all 2s ease-out 0s;
-    }
-
-    .slider__photo__unvisible {
-        display: none;
-    }
-
-    .slider__photo__back.active {
-        display: none;
-    }
-
-    .slider__photo__back {
-        display: none;
-    }
+ 
 
 
 }
