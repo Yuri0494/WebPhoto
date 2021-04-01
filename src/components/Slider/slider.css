@@ -1,3 +1,5 @@
+
+/* Контейнер для слайдера */
 .slider__wrapper {
     width: 100%;
     max-width: 1240px;
@@ -6,11 +8,13 @@
     box-sizing: border-box;
 }
 
+/* Еще один контейнер для слайдера */
 .slider__content {
     width: 100%;
     height: 100%;
 }
 
+/* Контейнер для основного фото */
 .slider__photo {
     display: flex;
     justify-content: center;
@@ -21,6 +25,7 @@
     overflow: hidden;
 }
 
+/* Активное фото */
 .slider__photo_now {
     display: flex;
     margin: 5px;
@@ -31,6 +36,7 @@
     padding-bottom: 2px;
 }
 
+/* Анимация переключения */
 .slider__photo_now.exiting {
     position:relative;
     z-index: -1;
@@ -38,6 +44,7 @@
     animation-iteration-count: 1;
 }
 
+/* Анимация переключения (не используется)*/
 .slider__photos__preveiw.exiting {
     position:relative;
     z-index: -1;
@@ -45,6 +52,7 @@
     animation-iteration-count: 1;
 }
 
+/* Стиль для img*/
 .slider__photo_now img {
     display: block;
     margin: 0 auto;
@@ -55,6 +63,7 @@
     max-width: 100%;
 }
 
+/* Стрелка влево */
 .slider__arrow__next {
     position: relative;
     z-index: -1;
@@ -67,6 +76,7 @@
     transition: all 0.3s ease-out 0s;
 }
 
+/* Стрелка вправо */
 .slider__arrow__back {
     position: relative;
     z-index: -1;
@@ -79,22 +89,25 @@
     transition: all 1s ease-out 0s;
 }
 
+/* Контйнер для стрелки */
 .arrow_container {
     position: relative;
     cursor: pointer;
 }
 
+/* Анимация при наведении на стрелку */
 .arrow_container:hover .slider__arrow__back {
     border-left: 5px solid white;
     border-bottom: 5px solid white;
 }
 
+/* Анимация при наведении на стрелку */
 .arrow_container:hover .slider__arrow__next {
     border-left: 5px solid white;
     border-bottom: 5px solid white;
 }
 
-
+/* Контейнер для ленты с фотографиями */
 .slider__photos {
     height: 20%;
     margin: 0 auto;
@@ -105,6 +118,7 @@
     overflow: hidden;
 }
 
+/* Стиль img для фото в ленте */
 .slider__photos__preveiw img{
     cursor: pointer;
     margin: 10px;
@@ -116,6 +130,7 @@
     border: 0.5px solid white;
 }
 
+/* Показать */
 @keyframes show {
     from {
         opacity: 0.1;
@@ -143,6 +158,7 @@
 
   }
 
+  /* Скрыть (не используется) */
   @keyframes hide {
     
     from {
@@ -159,6 +175,7 @@
     }
   }
 
+  /* Медиазпросы */
 @media (max-width: 1025px) {
     .slider__photos__preveiw img {
         max-height: 100px;

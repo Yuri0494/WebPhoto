@@ -74,11 +74,14 @@ getThisSlide (eventTarget) {
 }
 
     render () {
-        let photo = null;
+
+        // Фотографии из нижней ленты слайдера
         let photo1 = this.state.sliderCounter + 1;
         let photo2 = this.state.sliderCounter + 2;
         let photo3 = this.state.sliderCounter + 3;
-        
+
+
+        // Граничные значения для последовательной смены фотографий при переключении.
         if(photo1 > this.state.photos.length - 1) {
             photo1 = 0;
         }
@@ -91,13 +94,6 @@ getThisSlide (eventTarget) {
             photo3-=this.state.photos.length;
         }
 
-        if(this.state.active) {
-            photo = <div className="slider__photo_now.active"><img src={this.state.photos[this.state.sliderCounter]}></img></div>
-        } else {
-            photo = <div className="slider__photo_now"><img src={this.state.photos[this.state.sliderCounter]}></img></div>
-        }
-        
-        
         return (
             <div className="slider__wrapper">
                 <div className="slider__content">
