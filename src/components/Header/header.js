@@ -1,5 +1,11 @@
 import React from "react";
-import "./header.css"
+import "./header.css";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
 export default class Header extends React.Component {
     constructor (props) {
@@ -32,7 +38,7 @@ export default class Header extends React.Component {
         return (
                 <div className="header__wrapper">
                     <div className="header__brand">
-                        <h1 className="brand">Семейный фотоальбом</h1>
+                    <Link to="/" style={{ textDecoration: 'none' }}><h1 className="brand">Семейный фотоальбом</h1></Link>
                     </div>
                     <div className="header__navigation">
                         <div className="navigation">
@@ -41,15 +47,13 @@ export default class Header extends React.Component {
                                     this.toggleActive();
                             }}><span></span></div>
                             <ul className={activeMenu} >
-                                <li className="link"><a href="#">Багаевы</a></li>
-                                <li className="link"><a href="#">Лапины</a></li>
-                                <li className="link"><a href="#">Новые фото</a></li>
-                                <li className="link"><a href="#">Разное</a></li>
+                                <Link to="/bagaevs"><li className="link"><a onClick={() => {this.props.pageActive("bagaevs")}}>Багаевы</a></li></Link>
+                                <Link to="/lapins"><li className="link"><a>Лапины</a></li></Link>
+                                <li className="link"><a>Новые фото</a></li>
+                                <li className="link"><a>Разное</a></li>
                             </ul>
                         </div>
-                    </div>
-            
-                </div>
-            )
+                    </div>            
+                </div>)
     }
 }

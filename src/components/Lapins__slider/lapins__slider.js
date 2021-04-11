@@ -1,14 +1,14 @@
 import React from "react";
-import "./slider.css";
+import "./lapins__slider.css";
 import { Transition } from 'react-transition-group';
 
 
-export default class Slider extends React.Component {
+export default class Lapins__slider extends React.Component {
     constructor (props) {
         super(props);
         this.state = {
             photos: this.createAllPhotos(),
-            sliderCounter: 0,
+            sliderCounter: 85,
             active: false,
             photoNowActive: false,
         }
@@ -118,22 +118,23 @@ createAllPhotos () {
                     onClick={this.scalePhoto}
                 ></div>
                 <div className="slider__content">
+                    <p className="slider__counter">{`Фотография ${this.state.sliderCounter + 1} из ${this.state.photos.length}`}</p>
                     <div className="slider__photo">
-                        <div className="arrow_container" onClick={() => {this.nextPhoto(), this.setActiveTrue(), console.log()}}><div className="slider__arrow__next"></div></div>
                             <Transition in={this.state.active} timeout={500} onEntered={this.toggleActive}>
                             {
                             state => 
                             (<div className={`slider__photo_now ${state}`}>
+                                  <div className="arrow_container" onClick={() => {this.nextPhoto(), this.setActiveTrue(), console.log()}}><div className="slider__arrow__next"></div></div>
                                 <img className ={styleForImg} src={this.state.photos[this.state.sliderCounter]}
                                 onClick={(event) => {
                                     this.scalePhoto();
                                     console.log(event.target.src);
                                 }}
                                 ></img>
+                                 <div className="arrow_container" onClick={() => {this.backPhoto(), this.setActiveTrue()}}><div className="slider__arrow__back"></div></div>
                             </div>)
                             }   
                             </Transition>
-                        <div className="arrow_container" onClick={() => {this.backPhoto(), this.setActiveTrue()}}><div className="slider__arrow__back"></div></div>
                     </div>
                     
                     <div className="slider__photos">
