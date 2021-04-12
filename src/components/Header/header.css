@@ -1,3 +1,7 @@
+* {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
 /* Содержимое header */
 .header__wrapper {
     position: fixed;
@@ -162,13 +166,16 @@
 		height: 100%;
 		background-color: #A28557;
 		padding: 0px 0px 0px 0px;
-		transition: top 1s ease-out 0s;
+		transition: all 1s linear 0s;
 		z-index: -1;
+        opacity: 0;
     }
 
     .links.active {
         top: 0px;
         padding: 70px 0px 0px 0px;
+        opacity: 1;
+        transition: all 1s linear 0s;
     }
 
     .link {

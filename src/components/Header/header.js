@@ -14,11 +14,18 @@ export default class Header extends React.Component {
             active: false,
         }
         this.toggleActive = this.toggleActive.bind(this);
+        this.closeMenu = this.closeMenu.bind(this);
     }
 
     toggleActive () {
         return this.setState({
             active: !this.state.active
+        })
+    }
+
+    closeMenu () {
+        return this.setState({
+            active: false
         })
     }
 
@@ -47,10 +54,10 @@ export default class Header extends React.Component {
                                     this.toggleActive();
                             }}><span></span></div>
                             <ul className={activeMenu} >
-                                <Link to="/bagaevs"><li className="link"><a onClick={() => {this.props.pageActive("bagaevs")}}>Багаевы</a></li></Link>
-                                <Link to="/lapins"><li className="link"><a>Лапины</a></li></Link>
-                                <li className="link"><a>Новые фото</a></li>
-                                <li className="link"><a>Разное</a></li>
+                                <Link to="/bagaevs"><li className="link"><a onClick={this.closeMenu}>Багаевы</a></li></Link>
+                                <Link to="/lapins"><li className="link" onClick={this.closeMenu}><a>Лапины</a></li></Link>
+                                <Link to="/new photo"><li className="link"><a>Новые фото</a></li></Link>
+                                <Link to="/other"><li className="link"><a>Разное</a></li></Link>
                             </ul>
                         </div>
                     </div>            
