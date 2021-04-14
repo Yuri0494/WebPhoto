@@ -75,7 +75,7 @@ scalePhoto () {
 
 createAllPhotos () {
     let allPhotos = [];
-    for(let i = 0; i < 87; i++) {
+    for(let i = 0; i < 86; i++) {
         allPhotos.push(`/img/${i+1}.jpg`);
     }
     return allPhotos;
@@ -124,14 +124,14 @@ createAllPhotos () {
                             {
                             state => 
                             (<div className={`slider__photo_now ${state}`}>
-                                  <div className="arrow_container" onClick={() => {this.nextPhoto(), this.setActiveTrue(), console.log()}}><div className="slider__arrow__next"></div></div>
+                                  <div className="arrow_container" onClick={() => {this.backPhoto(), this.setActiveTrue()}}><div className="slider__arrow__next"></div></div>
                                 <img className ={styleForImg} src={this.state.photos[this.state.sliderCounter]}
                                 onClick={(event) => {
                                     this.scalePhoto();
                                     console.log(event.target.src);
                                 }}
                                 ></img>
-                                 <div className="arrow_container" onClick={() => {this.backPhoto(), this.setActiveTrue()}}><div className="slider__arrow__back"></div></div>
+                                 <div className="arrow_container" onClick={() => {this.nextPhoto(), this.setActiveTrue()}}><div className="slider__arrow__back"></div></div>
                             </div>)
                             }   
                             </Transition>

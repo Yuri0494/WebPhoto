@@ -62,11 +62,10 @@
     margin: 0 auto;
     object-fit: scale-down;
     box-shadow: 10px 5px 10px black;
-    border: 2px solid  white;
+    border: 2px solid  black;
     max-height: 100%;
     max-width: 100%;
-    min-width: 100px;
-    cursor: pointer;
+    min-width: 150px;
 }
 
 .slider__photo_now__img22 {
