@@ -2,7 +2,6 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer"; 
 import Bagaevs__slider from "./components/Bagaevs__slider";
-import Lapins__slider from "./components/Lapins__slider";
 import "./App.css";
 import {
   BrowserRouter as Router,
@@ -37,8 +36,9 @@ export default class App extends React.Component {
             </div>
             <div className="page__content">
               <Switch>
+              <Route path="/" component={Bagaevs__slider}><Bagaevs__slider/></Route>
               <Route path="/bagaevs" component={Bagaevs__slider}><Bagaevs__slider/></Route>
-              <Route path="/lapins"><Lapins__slider/></Route>
+
               </Switch>
             </div>
             <div className="page__footer">

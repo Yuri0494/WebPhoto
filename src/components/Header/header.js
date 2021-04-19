@@ -56,8 +56,8 @@ export default class Header extends React.Component {
                             <ul className={activeMenu} >
                                 <Link to="/bagaevs"><li className="link"><a onClick={this.closeMenu}>Багаевы</a></li></Link>
                                 <Link to="/lapins"><li className="link" onClick={this.closeMenu}><a>Лапины</a></li></Link>
-                                <Link to="/new photo"><li className="link"><a>Новые фото</a></li></Link>
-                                <Link to="/other"><li className="link"><a>Разное</a></li></Link>
+                                <Link to="/"><li className="link"><a>Новые фото</a></li></Link>
+                                <Link to="/"><li className="link"><a>Разное</a></li></Link>
                             </ul>
                         </div>
                     </div>            
